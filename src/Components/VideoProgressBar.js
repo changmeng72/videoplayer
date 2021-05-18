@@ -28,6 +28,7 @@ const VideoProgressBar = forwardRef((props, ref) => {
   };
   const showVideoPositionTime = (event) => {
     setSearchTimePos(() => event.clientX - 15); //here use fixed coord for test only,fix maybe
+    props.toggleTimeTag(true);
     props.showVideoPositionTime(event);
   };
   useEffect(() => {

@@ -11,6 +11,7 @@
   background-color: black;
   width: 100%;
   height: 100%;
+  user-select: none;
 }
 
 .video {
@@ -68,6 +69,7 @@
   background: none;
   border: none;
   cursor: pointer;
+  user-select: none;
 }
 .videoprogressbar .progressbarwrapper .progressbar {
   position: relative;
@@ -76,7 +78,6 @@
   border: none;
   border-radius: 2px;
   background-color: rgba(128, 128, 128, 0.5);
-  cursor: pointer;
 }
 .videoprogressbar .progressbarwrapper .progressbar .curposition {
   position: relative;

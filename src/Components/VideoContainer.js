@@ -103,7 +103,6 @@ function VideoContainer(props) {
   };
 
   const setCurTimeByDrag = (event) => {
-    event.preventDefault();
     let rect = event.target.getBoundingClientRect();
     let offsetX = event.clientX - rect.left - volumeholderRadius;
 
@@ -122,9 +121,9 @@ function VideoContainer(props) {
   /*show time tag when mouseover progress bar*/
   ///////
   const showVideoPositionTime = (event) => {
-    event.preventDefault();
-    let rect = event.target.getBoundingClientRect();
+    let rect = event.currentTarget.getBoundingClientRect();
     let offsetX = event.clientX - rect.left;
+
     if (props.width > 100) {
       setSearchTime(parseInt((offsetX * duration) / (props.width - 100))); //length of progress bar is w-100
     }
