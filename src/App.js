@@ -1,23 +1,31 @@
-import logo from './logo.svg';
-import './App.css';
+import "./App.css";
+import { useEffect, useState } from "react";
+import VideoContainer from "./Components/VideoContainer";
 
 function App() {
+  const [videoWidth, setVideoWidth] = useState(
+    document.documentElement.clientWidth
+  );
+  const [videoHeight, setVideoHeight] = useState(
+    document.documentElement.clientHeight
+  );
+
+  useEffect(() => {
+    function onResize() {
+      setVideoWidth(document.documentElement.clientWidth);
+      setVideoHeight(document.documentElement.clientHeight);
+    }
+
+    window.addEventListener("resize", onResize);
+
+    return () => {
+      window.removeEventListener("resize", onResize);
+    };
+  }, []);
+
   return (
     <div className="App">
-      <header className="App-header">
-        <img src={logo} className="App-logo" alt="logo" />
-        <p>
-          Edit <code>src/App.js</code> and save to reload.
-        </p>
-        <a
-          className="App-link"
-          href="https://reactjs.org"
-          target="_blank"
-          rel="noopener noreferrer"
-        >
-          Learn React
-        </a>
-      </header>
+      <VideoContainer width={videoWidth} height={videoHeight}></VideoContainer>
     </div>
   );
 }
